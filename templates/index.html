@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Google OAuth 2.0 Example</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #4285f4;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .logout-btn,
+        .login-btn {
+            background-color: #4285f4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .json-container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+
+        .json-container h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flask Google OAuth 2.0 Example</h1>
+    </header>
+
+    <section>
+        {% if session %}
+        <div class="json-container">
+            <h2>Your are loggedin successfully !</h2>
+            <h2>User Information</h2>
+            {% if user_info.picture_url %}
+            <img src="{{ user_info.picture_url }}" alt="User Profile Picture">
+            {% endif %}
+            <p>Email: {{ user_info.email }}</p>
+            <p>Name: {{ user_info.name }}</p>
+        </div>
+        <p><a href='{{url_for("logout")}}' class="logout-btn">Logout</a></p>
+        {% else %}
+        <h2>Login to your account</h2>
+        <p><a href='{{url_for("login")}}' class="login-btn">Login</a></p>
+        {% endif %}
+    </section>
+</body>
+</html>
