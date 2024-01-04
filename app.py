@@ -7,11 +7,11 @@ app= Flask(__name__)
 
 # Creating and registering the app with OAuth server.
 oauth=OAuth(app)
-app.secret_key='dfhfghdjgh7657656ghtyyu56u'
+app.secret_key='dfhfghdjgh7657656ghtyyu56u' # Any random string.
 oauth.register('myapp',
-                 redirect_uris="http://localhost:5000/google-login",
-                client_id='444835706970-6qjd2gd49bk6hmi2ad3gtgm3cqq3of8b.apps.googleusercontent.com',
-                client_secret='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',
+                 redirect_uris="YOUR_REDIRECT_URL",
+                client_id='YOUR_CLIENT_ID',
+                client_secret='YOUR_CLIENT_SECRET',
                 server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
                 client_kwargs={
                     'scope':"openid profile email"
