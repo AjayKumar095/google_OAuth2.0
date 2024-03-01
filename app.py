@@ -9,9 +9,9 @@ app= Flask(__name__)
 oauth=OAuth(app)
 app.secret_key='dfhfghdjgh7657656ghtyyu56u'
 oauth.register('myapp',
-                 redirect_uris="redirect url",
-                client_id='your-client-id',
-                client_secret='your-client-secret',
+                 redirect_uris="http://localhost:5000/google-login",
+                client_id='444835706970-6qjd2gd49bk6hmi2ad3gtgm3cqq3of8b.apps.googleusercontent.com',
+                client_secret='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',
                 server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
                 client_kwargs={
                     'scope':"openid profile email"
